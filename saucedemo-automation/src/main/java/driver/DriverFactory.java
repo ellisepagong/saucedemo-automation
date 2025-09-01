@@ -10,6 +10,9 @@ public class DriverFactory {
     private static final String DRIVER_PATH = "PATH_TO_DRIVER";
 
     private static WebDriver driver;
+    private DriverFactory(){
+
+    }
 
     public static WebDriver getDriver(){
         if (driver == null) {

@@ -26,7 +26,7 @@ public class LoginSteps {
 
     @Then("error message should appear")
     public void error_message_should_appear(){
-        Assert.assertFalse(page.checkErrorMessage());
+        Assert.assertTrue(page.checkErrorMessage());
     }
 
 }
