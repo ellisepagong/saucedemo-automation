@@ -28,7 +28,7 @@ jobs:
         run: mvn package
         working-directory: saucedemo-automation
       - name: Run test @${{ github.event.inputs.tag }}
-        run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
+        run: mvn test -X -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
         working-directory: saucedemo-automation
 
 
