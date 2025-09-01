@@ -10,7 +10,7 @@ public class LoginPage extends BasePage {
     private final By usernameForm = By.xpath("//*[@id=\"user-name\"]");
     private final By passwordForm = By.xpath("//*[@id=\"password\"]");
     private final By loginButton = By.xpath("//*[@id=\"login-button\"]");
-    private final By errorContainer = By.className("//*[@id=\"login_button_container\"]/div/form/h3");
+    private final By errorContainer = By.xpath("//*[@id=\"login_button_container\"]/div/form/h3");
 
 
     public void enterUsername(String username){

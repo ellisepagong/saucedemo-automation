@@ -4,6 +4,8 @@ import driver.DriverFactory;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class Hooks {
@@ -18,7 +20,11 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             System.out.println("Scenario failed: " + scenario.getName());
-//            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            WebDriver driver = DriverFactory.getDriver();
+            TakesScreenshot ts = (TakesScreenshot) driver;
+
+            byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+            scenario.attach(src, "image/png", "screenshot");
         }
         System.out.println("Finished scenario: " + scenario.getName());
         DriverFactory.quitDriver();
