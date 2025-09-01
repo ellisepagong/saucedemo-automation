@@ -24,7 +24,8 @@ jobs:
       - name: Run test @${{ github.event.inputs.tag }}
         run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
         working-directory: saucedemo-automation
-      - name: Archive Test Results
+      - name: Cucumber Test Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-report
