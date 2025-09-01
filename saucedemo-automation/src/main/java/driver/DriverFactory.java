@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.*;
 
 public class DriverFactory {
 
-    private static final String DRIVER_PATH = "C:\\Users\\johan\\AppData\\Local\\edgedriver_win64\\msedgedriver.exe";
+    private static final String DRIVER_PATH = "PATH_TO_DRIVER";
 
     private static WebDriver driver;
     private DriverFactory(){
