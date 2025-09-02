@@ -9,6 +9,7 @@ This project contains automated tests for [SauceDemo](https://www.saucedemo.com/
 ## 📂 Project Structure
 
 ```markdown
+test-cases.md # list of test cases
 .github/workflows/ci.yml # GitHub Actions pipeline
 src/
 main/java/driver/ # Web Driver Manager
@@ -46,6 +47,7 @@ test/java/features/ # Gherkin feature files
 ## CI/CD
 
 Tests are automatically run on every Pull Request via GitHub Actions, as well as on every 1st and 15th of every month.
+These tests are skipped if a Pull Request contains ```[skip-check]``` in the title
 
 ---
 ## Documentation
