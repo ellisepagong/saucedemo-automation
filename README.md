@@ -1,43 +1,51 @@
 # saucedemo-automation
-This project contains automated tests using **Selenium WebDriver**, **Cucumber (Gherkin)**  and **GitHub Actions** for CI/CD.
+This project contains automated tests for [SauceDemo](https://www.saucedemo.com/v1) using **Selenium WebDriver**, **Cucumber (Gherkin)**  and **GitHub Actions** for CI/CD.
 
 ## 🚀 Features
-- BDD with Gherkin syntax
+- Behavior-Driven Development with Gherkin syntax
 - Page Object Model (POM) structure
-- Configurable environments (via `config.properties`)
 - CI/CD pipeline via GitHub Actions
 
 ## 📂 Project Structure
 
 ```markdown
+.github/workflows/ci.yml # GitHub Actions pipeline
 src/
-main/java/pages/ # Page Object classes
-test/java/features/ # Gherkin feature files
-test/java/steps/ # Step definitions
-test/java/hooks/ # Setup & teardown
+main/java/driver/ # Web Driver Manager
+test/java/pages/ # Page objects and xpath locators
 test/java/runners/ # Cucumber runners
-test/java/utils/ # Helpers (DriverFactory, ConfigReader)
+test/java/steps/ # Step definitions and Hooks
+test/java/features/ # Gherkin feature files
 ```
 
-[//]: # (.github/workflows/ci.yml # GitHub Actions pipeline)
 
 
 ## ⚙️ Setup & Run
 1. Clone the repo
    ```bash
-   git clone https://github.com/your-org/automation-tests.git
+   git clone https://github.com/ellisepagong/saucedemo-automation.git
    ```
+   
+2. Install WebDriver (ChromeDriver, EdgeDriver, etc.)
 
-2. Install Dependencies
-   ```bash
+3. go to src/main/java/driver/DriverFactory.java
+    ```java
+   // line 10
+   private static final String DRIVER_PATH = "PATH_TO_DRIVER"; // <- Replace with path to Driver
+   ```
+   * note: DriverFactory assumes you have and will use Microsoft Edge installed in the default location. Feel free to replace EdgeOptions/EdgeDriver with your preferred browser.
+   
+
+4. Install Dependencies
+   ```mvn
    mvn clean install
    ```
-3. Open runner.java, replace tag with desired test case
+5. Open runner.java, replace tag with desired test case
 
 ---
 ## CI/CD
 
-Tests are automatically run on every push via GitHub Actions
+Tests are automatically run on every Pull Request via GitHub Actions, as well as on every 1st and 15th of every month.
 
 ---
 ## Documentation

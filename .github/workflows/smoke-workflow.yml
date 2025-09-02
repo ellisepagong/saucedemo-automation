@@ -1,0 +1,31 @@
+name: Smoke Test
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 1 1,15 * *"
+#     9 AM UTC+8 on 1st and 15th of every month
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nanasess/setup-chromedriver@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: maven
+      - name: Run Smoke Test
+        run: mvn test -Denv=ci -Dcucumber.filter.tags=@Smoke
+        working-directory: saucedemo-automation
+      - name: Cucumber Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: saucedemo-automation/target/cucumber-reports.html
