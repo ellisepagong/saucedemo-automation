@@ -25,7 +25,7 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Manual test @${{ github.event.inputs.tag }}
-        if: ${{ github.event_name == 'workflow-dispatch'}}
+        if: ${{ github.event_name == 'workflow_dispatch'}}
         run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
         working-directory: saucedemo-automation
       - name: Smoke test @${{ github.event.pull_request.title }}
