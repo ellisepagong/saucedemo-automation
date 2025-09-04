@@ -1,13 +1,11 @@
-
-
 Feature: Various Log-in scenarios
 
-  @IncorrectCredentials @Regression
+  @Regression @SWAG-003
   Scenario: Incorrect Credentials
     Given I am on the home page
     When I enter "falseUsername" and "falsePassword" in login details
     And I click login
-    Then error message should appear
+    Then login error message should be "Epic sadface: Username and password do not match any user in this service"
 
   @Regression
   Scenario: Locked Out User

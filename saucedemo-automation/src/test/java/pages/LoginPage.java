@@ -32,4 +32,8 @@ public class LoginPage extends BasePage {
     public void navigate(){
         navigate(LOGIN_ADDRESS);
     }
+
+    public String getErrorMessage() {
+        return getText(errorContainer);
+    }
 }

@@ -29,4 +29,9 @@ public class LoginSteps {
         Assert.assertTrue(page.checkErrorMessage());
     }
 
+    @Then("login error message should be {string}")
+    public void login_error_message_should_be(String msg){
+        Assert.assertEquals(page.getErrorMessage(), msg);
+    }
+
 }
