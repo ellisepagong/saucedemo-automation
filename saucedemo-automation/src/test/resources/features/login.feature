@@ -1,5 +1,12 @@
 Feature: Various Log-in scenarios
 
+  @Smoke @SWAG-001
+  Scenario: Successful Log-in
+    Given I am on the home page
+    When I enter "standard_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+
   @Regression @SWAG-003
   Scenario: Incorrect Credentials
     Given I am on the home page
