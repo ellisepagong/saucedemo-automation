@@ -1,8 +1,6 @@
 name: Regression Test
 
 on:
-  pull_request:
-    branches: [ "main" ]
   schedule:
     - cron: "0 2 1,15 * *"
 #     10 AM UTC+8 on 1st and 15th of every month
@@ -10,7 +8,6 @@ on:
 
 jobs:
   test:
-    if: "!contains(github.event.pull_request.title, '[skip-check]')" # skips check if [skip-check] found in title
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
