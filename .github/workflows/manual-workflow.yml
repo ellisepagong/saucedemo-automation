@@ -1,8 +1,6 @@
-name: Single Test Workflow
+name: Manual Workflow
 
 on:
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       tag:
@@ -13,7 +11,6 @@ on:
 
 jobs:
   test:
-    if: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request.title, '[skip-check]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,13 +21,8 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: maven
-      - name: Manual test @${{ github.event.inputs.tag }}
-        if: ${{ github.event_name == 'workflow-dispatch'}}
+      - name: Run test @${{ github.event.inputs.tag }}
         run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
-        working-directory: saucedemo-automation
-      - name: Smoke test @${{ github.event.pull_request.title }}
-        if: ${{ github.event_name == 'pull_request'}}
-        run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.pull_request.title }}
         working-directory: saucedemo-automation
       - name: Cucumber Test Report
         if: always()
