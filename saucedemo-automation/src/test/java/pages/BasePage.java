@@ -42,11 +42,8 @@ public abstract class BasePage {
         }
     }
 
-    public void verifyPage(String title){
-        if (!Objects.equals(driver.getTitle(), title)){
-            throw new IllegalStateException("This is not "+ title +
-                    ", current page is: " + driver.getCurrentUrl());
-        }
+    public Boolean verifyPage(String url){
+        return Objects.equals(driver.getCurrentUrl(), url);
     }
 
     public void navigate(String url) {
