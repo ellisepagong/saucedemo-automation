@@ -8,7 +8,7 @@ Feature: Various Log-in scenarios
     Then I should be in inventory page
 
   @Regression
-  Scenario Outline: Negative Login tests
+  Scenario Outline: <Scenario>
     Given I am on the home page
     When I enter "<username>" and "<password>" in login details
     And I click login
