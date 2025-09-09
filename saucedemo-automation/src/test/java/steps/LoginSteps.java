@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.en.*;
+import models.Strings;
 import org.junit.Assert;
 import pages.LoginPage;
 
@@ -30,8 +31,8 @@ public class LoginSteps {
     }
 
     @Then("login error message should be {string}")
-    public void login_error_message_should_be(String msg){
-        Assert.assertEquals(page.getErrorMessage(), msg);
+    public void login_error_message_should_be(String msgKey){
+        Assert.assertEquals(page.getErrorMessage(), Strings.getString(msgKey));
     }
 
 }
