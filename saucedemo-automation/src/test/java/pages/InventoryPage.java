@@ -3,6 +3,8 @@ package pages;
 import models.CatalogItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import java.util.List;
 
 
@@ -16,6 +18,8 @@ public class InventoryPage extends BasePage{
     private final By itemDesc = By.cssSelector(".inventory_item_desc");
     private final By itemPrice = By.cssSelector(".inventory_item_price");
 
+    private final By sortSelect = By.cssSelector(".product_sort_container");
+
 
     public boolean verifyNavigation() {
        return verifyPage(INVENTORY_ADDRESS);
@@ -27,5 +31,10 @@ public class InventoryPage extends BasePage{
         return new CatalogItem(container.findElement(itemLabel).getText(),
                 container.findElement(itemDesc).getText(),
                 container.findElement(itemPrice).getText());
+    }
+
+    public void sortBy(String value) {
+        Select select = new Select(driver.findElement(sortSelect));
+        select.selectByValue(value);
     }
 }
