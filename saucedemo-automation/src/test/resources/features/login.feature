@@ -16,16 +16,16 @@ Feature: Various Log-in scenarios
 
   @SWAG-002
   Examples:
-   | Scenario         | username      | password     | message                            |
-   | Missing Username |               | secret_sauce | Epic sadface: Username is required |
-   | Missing Password | standard_user |              | Epic sadface: Password is required |
+   | Scenario         | username      | password     | message          |
+   | Missing Username |               | secret_sauce | MISSING_USERNAME |
+   | Missing Password | standard_user |              | MISSING_PASSWORD |
 
   @SWAG-003
   Examples:
-    | Scenario              | username       | password      | message                                                                   |
-    | Incorrect Credentials |  falseUsername | falsePassword | Epic sadface: Username and password do not match any user in this service |
+    | Scenario              | username       | password      | message               |
+    | Incorrect Credentials |  falseUsername | falsePassword | INCORRECT_CREDENTIALS |
 
   @SWAG-004
   Examples:
-    | Scenario       | username         | password     | message                                             |
-    | Locked Out User|  locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out. |
+    | Scenario       | username         | password     | message    |
+    | Locked Out User|  locked_out_user | secret_sauce | LOCKED_OUT |

@@ -16,6 +16,13 @@ public class Strings {
         }
     }
 
+    // Log in Error Messages
+    public static final String MISSING_USERNAME = "Epic sadface: Username is required";
+    public static final String MISSING_PASSWORD = "Epic sadface: Password is required";
+    public static final String INCORRECT_CREDENTIALS = "Epic sadface: Username and password do not match any user in this service";
+    public static final String LOCKED_OUT = "Epic sadface: Sorry, this user has been locked out.";
+
+    // Catalog Descriptions
     public static final String BACKPACK_DESC = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
     public static final String BIKELIGHT_DESC = "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.";
     public static final String BOLTSHIRT_DESC = "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.";
