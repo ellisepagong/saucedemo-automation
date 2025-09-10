@@ -30,5 +30,8 @@ public class Strings {
     public static final String ONESIE_DESC = "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.";
     public static final String TESTTHINGSSHIRT_DESC = "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.";
 
-
+    // Checkout Error Messages
+    public static final String CHECKOUT_FIRSTNAME_REQUIRED = "Error: First Name is required";
+    public static final String CHECKOUT_LASTNAME_REQUIRED = "Error: Last Name is required";
+    public static final String CHECKOUT_POSTAL_REQUIRED = "Error: Postal Code is required";
 }

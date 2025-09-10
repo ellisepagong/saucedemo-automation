@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.DataTableType;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -48,5 +49,17 @@ public class InventorySteps {
     @When("I sort catalog by {string}")
     public void iSortCatalogByString(String option) {
         page.sortBy(option);
+    }
+
+    @When("I add the following items to cart")
+    public void iAddTheFollowingItemsToCart(List<String> items) {
+        for (String item: items){
+            page.addToCart(item);
+        }
+    }
+
+    @And("I go to cart")
+    public void iGoToCart() {
+        page.clickCart();
     }
 }
