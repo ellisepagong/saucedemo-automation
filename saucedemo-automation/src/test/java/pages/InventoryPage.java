@@ -20,6 +20,8 @@ public class InventoryPage extends BasePage{
 
     private final By sortSelect = By.cssSelector(".product_sort_container");
 
+    private final By addToCartButton = By.cssSelector("button.btn_inventory");
+    private final By cartButton = By.id("shopping_cart_container");
 
     public boolean verifyNavigation() {
        return verifyPage(INVENTORY_ADDRESS);
@@ -36,5 +38,19 @@ public class InventoryPage extends BasePage{
     public void sortBy(String value) {
         Select select = new Select(driver.findElement(sortSelect));
         select.selectByValue(value);
+    }
+
+    public void addToCart(String itemName) {
+        List<WebElement> containers = driver.findElements(inventoryItems);
+        for (WebElement container : containers){
+            if(container.findElement(itemLabel).getText().equals(itemName)){
+                WebElement button = container.findElement(addToCartButton);
+                button.click();
+            }
+        }
+    }
+
+    public void clickCart() {
+        click(cartButton);
     }
 }
