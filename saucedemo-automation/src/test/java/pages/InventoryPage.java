@@ -42,11 +42,17 @@ public class InventoryPage extends BasePage{
 
     public void addToCart(String itemName) {
         List<WebElement> containers = driver.findElements(inventoryItems);
+        boolean found = false;
         for (WebElement container : containers){
             if(container.findElement(itemLabel).getText().equals(itemName)){
                 WebElement button = container.findElement(addToCartButton);
                 button.click();
+                found = true;
+                break;
             }
+        }
+        if (!found) {
+            throw new IllegalArgumentException("Item with name '" + itemName + "' not found in inventory.");
         }
     }
 
