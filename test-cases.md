@@ -13,7 +13,7 @@
 | Test Code | Test Case         |
 |-----------|-------------------|
 | SWAG-001  | Successful Log in |
-| SWAG-006  | Attempt purchase  |
+| SWAG-018  | Attempt purchase  |
 
 
 ## Regression Tests (@Regression)
