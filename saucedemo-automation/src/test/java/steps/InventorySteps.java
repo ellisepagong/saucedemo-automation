@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import models.CatalogItem;
 import org.junit.Assert;
 import pages.InventoryPage;
@@ -25,11 +26,27 @@ public class InventorySteps {
         Assert.assertTrue(page.verifyNavigation());
     }
 
-    @And("I verify the following items in catalog")
+    @Then("I verify the following items in catalog")
     public void iVerifyTheFollowingItemsInCatalog(List<CatalogItem> catalog) {
         for(int i=0; i< catalog.size(); i++){
             CatalogItem item = catalog.get(i);
             Assert.assertTrue(item.equals(page.getCatalogItem(i)));
         }
+    }
+
+    /**
+     * Sorts catalog in various orders
+     *
+     * @param option the value of select option:
+     *
+     *      az - Alphabetical
+     *      za - reverse alphabetical
+     *      lohi - price low to high
+     *      hilo - price high to low
+     */
+
+    @When("I sort catalog by {string}")
+    public void iSortCatalogByString(String option) {
+        page.sortBy(option);
     }
 }
