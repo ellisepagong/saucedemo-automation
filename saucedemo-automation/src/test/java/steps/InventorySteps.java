@@ -59,7 +59,7 @@ public class InventorySteps {
     }
 
     @And("I go to cart")
-    public void iGoToCart() throws InterruptedException {
+    public void iGoToCart() {
         page.clickCart();
     }
 }
