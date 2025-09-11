@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class CartPage extends BasePage{
 
@@ -14,7 +15,8 @@ public class CartPage extends BasePage{
     }
 
     public void checkout() {
-        click(checkoutButton);
+//        click(checkoutButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(checkoutButton));
     }
 
     public String getErrorMessage() {
