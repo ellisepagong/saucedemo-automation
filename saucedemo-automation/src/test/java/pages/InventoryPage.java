@@ -2,7 +2,9 @@ package pages;
 
 import models.CatalogItem;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -45,11 +47,11 @@ public class InventoryPage extends BasePage{
         boolean found = false;
         for (WebElement container : containers){
             if(container.findElement(itemLabel).getText().equals(itemName)){
+                System.out.println(container.findElement(itemLabel).getText());
+                System.out.println(container.findElement(itemDesc).getText());
                 WebElement button = container.findElement(addToCartButton);
-                System.out.println(button.isDisplayed());
-                System.out.println(button.isEnabled());
-                System.out.println(button.getRect());
-                button.click();
+//                button.click();
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
                 found = true;
                 break;
             }
