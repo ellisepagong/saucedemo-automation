@@ -61,6 +61,6 @@ public class InventoryPage extends BasePage{
 
     public void clickCart() {
 //        click(cartButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cartButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(cartButton));
     }
 }
