@@ -46,6 +46,9 @@ public class InventoryPage extends BasePage{
         for (WebElement container : containers){
             if(container.findElement(itemLabel).getText().equals(itemName)){
                 WebElement button = container.findElement(addToCartButton);
+                System.out.println(button.isDisplayed());
+                System.out.println(button.isEnabled());
+                System.out.println(button.getRect());
                 button.click();
                 found = true;
                 break;
