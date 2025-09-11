@@ -12,18 +12,23 @@ on:
         type: string
 
 jobs:
+
   test:
     if: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request.title, '[skip-check]') }}
     runs-on: ubuntu-24.04
+    env:
+      ACTIONS_CACHE_URL: ""
+      ACTIONS_RUNTIME_TOKEN: ""
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          sudo rm -f /usr/local/bin/chromedriver
       - uses: nanasess/setup-chromedriver@v2
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'corretto'
-          cache: maven
       - name: Manual test @${{ github.event.inputs.tag }}
         if: ${{ github.event_name == 'workflow_dispatch'}}
         run: mvn test -Denv=ci -Dcucumber.filter.tags=@${{ github.event.inputs.tag }}
