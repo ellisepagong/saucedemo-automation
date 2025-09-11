@@ -9,17 +9,17 @@ Feature: Checkout Scenarios
     When I add the following items to cart
       | Sauce Labs Backpack  |
       | Sauce Labs Bike Light|
-#    And I go to cart
-#    Then I should be in cart page
-#    And I go to checkout
-#    Then I should be in checkout Page
-#    When I enter "firstname", "lastname" and "1800" in your information
-#    Then I should be in overview page
-#    Then I verify cart contents and price
-#      | Sauce Labs Backpack  |
-#      | Sauce Labs Bike Light|
-#    And I finish checkout
-#    Then transaction should be successful
+    And I go to cart
+    Then I should be in cart page
+    And I go to checkout
+    Then I should be in checkout Page
+    When I enter "firstname", "lastname" and "1800" in your information
+    Then I should be in overview page
+    Then I verify cart contents and price
+      | Sauce Labs Backpack  |
+      | Sauce Labs Bike Light|
+    And I finish checkout
+    Then transaction should be successful
 
   @Regression @SWAG-007
   Scenario Outline: Missing <Credential> at Checkout

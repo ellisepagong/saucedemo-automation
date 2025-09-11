@@ -47,8 +47,6 @@ public class InventoryPage extends BasePage{
         boolean found = false;
         for (WebElement container : containers){
             if(container.findElement(itemLabel).getText().equals(itemName)){
-                System.out.println(container.findElement(itemLabel).getText());
-                System.out.println(container.findElement(itemDesc).getText());
                 WebElement button = container.findElement(addToCartButton);
 //                button.click();
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
@@ -62,6 +60,7 @@ public class InventoryPage extends BasePage{
     }
 
     public void clickCart() {
-        click(cartButton);
+//        click(cartButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cartButton);
     }
 }
