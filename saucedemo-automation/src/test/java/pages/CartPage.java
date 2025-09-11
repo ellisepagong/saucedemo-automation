@@ -15,8 +15,7 @@ public class CartPage extends BasePage{
     }
 
     public void checkout() {
-//        click(checkoutButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(checkoutButton));
+        click(checkoutButton);
     }
 
     public String getErrorMessage() {

@@ -1,10 +1,7 @@
 package pages;
 
 import driver.DriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.Objects;
 
@@ -16,7 +13,7 @@ public abstract class BasePage {
     }
 
     public void click(By locator) {
-        driver.findElement(locator).click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(locator));
     }
 
     public void type(By locator, String text) {
