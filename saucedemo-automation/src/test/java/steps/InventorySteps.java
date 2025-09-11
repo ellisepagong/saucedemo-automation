@@ -62,4 +62,9 @@ public class InventorySteps {
     public void iGoToCart() {
         page.clickCart();
     }
+
+    @When("I go to inventory page")
+    public void iGoToInventoryPage() {
+        page.goToInventory();
+    }
 }

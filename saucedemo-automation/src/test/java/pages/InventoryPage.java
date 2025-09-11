@@ -59,4 +59,8 @@ public class InventoryPage extends BasePage{
     public void clickCart() {
         click(cartButton);
     }
+
+    public void goToInventory() {
+        navigate(INVENTORY_ADDRESS);
+    }
 }
