@@ -21,7 +21,7 @@ public class InventoryPage extends BasePage{
     private final By sortSelect = By.cssSelector(".product_sort_container");
 
     private final By addToCartButton = By.cssSelector("button.btn_inventory");
-    private final By cartButton = By.id("shopping_cart_container");
+    private final By cartButton = By.cssSelector(".shopping_cart_link");
 
     public boolean verifyNavigation() {
        return verifyPage(INVENTORY_ADDRESS);
