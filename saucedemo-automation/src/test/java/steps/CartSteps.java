@@ -27,6 +27,7 @@ public class CartSteps {
         String message = Strings.getString(msg);
         Assert.assertEquals(message, page.getErrorMessage());
     }
+
 }
 
 
