@@ -56,7 +56,8 @@ public class InventoryPage extends BasePage{
         }
     }
 
-    public void clickCart() {
+    public void clickCart() throws InterruptedException {
+        Thread.sleep(2000);
         click(cartButton);
     }
 }
