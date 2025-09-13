@@ -20,7 +20,8 @@ public class DriverFactory {
             if (env.equalsIgnoreCase("ci")) {
                 // Run on Headless mode for GitHub Actions
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless=new");
+                options.addArguments("--headless");
+                options.addArguments("--window-size=1920,1080");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
                 driver = new ChromeDriver(options);
