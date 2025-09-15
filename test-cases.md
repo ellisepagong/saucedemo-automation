@@ -31,7 +31,6 @@
 | SWAG-009  | Cart Persistence on Log out                    |
 | SWAG-010  | Verify Price Calculation                       |
 | SWAG-011  | Verify Images while Problem user logged in     |
-| SWAG-012  | Attempt purchase while Problem user logged in  |
 
 
 ## Invalid Tests (@Fail)
@@ -42,6 +41,7 @@ They are excluded from Smoke and Regression suites to prevent check failure on p
 | Test Code | Test Case                                     |
 |-----------|-----------------------------------------------|
 | SWAG-008  | Attempt Checkout with empty cart              |
+| SWAG-012  | Attempt purchase while Problem user logged in |
 | SWAG-013  | Attempt purchase with Performance Glitch User |
 | SWAG-014  | Whitespace in checkout fields                 |
 | SWAG-015  | Inventory URL Navigation                      |
