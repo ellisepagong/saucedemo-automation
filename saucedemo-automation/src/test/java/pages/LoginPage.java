@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
 
-    private final String LOGIN_ADDRESS = "https://www.saucedemo.com/v1";
+    private final String LOGIN_ADDRESS = "https://www.saucedemo.com/v1/index.html";
 
     // Element Locators
     private final By usernameForm = By.xpath("//*[@id=\"user-name\"]");
@@ -35,5 +35,9 @@ public class LoginPage extends BasePage {
 
     public String getErrorMessage() {
         return getText(errorContainer);
+    }
+
+    public Boolean verifyNavigation(){
+        return verifyPage(LOGIN_ADDRESS);
     }
 }
