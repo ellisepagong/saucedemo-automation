@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Objects;
 
 
 public class InventoryPage extends BasePage{
@@ -17,6 +18,7 @@ public class InventoryPage extends BasePage{
     private final By itemLabel = By.cssSelector(".inventory_item_name");
     private final By itemDesc = By.cssSelector(".inventory_item_desc");
     private final By itemPrice = By.cssSelector(".inventory_item_price");
+    private final By itemImage = By.cssSelector("img.inventory_item_img");
 
     private final By sortSelect = By.cssSelector(".product_sort_container");
 
@@ -62,5 +64,16 @@ public class InventoryPage extends BasePage{
 
     public void goToInventory() {
         navigate(INVENTORY_ADDRESS);
+    }
+
+    public boolean imagesBroken() {
+        List<WebElement> containers = driver.findElements(inventoryItems);
+        for (WebElement container : containers){
+            WebElement image = container.findElement(itemImage);
+            if(Objects.equals(image.getAttribute("naturalWidth"), "0")){
+                return true;
+            }
+        }
+        return false;
     }
 }

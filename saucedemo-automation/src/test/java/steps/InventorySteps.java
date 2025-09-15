@@ -67,4 +67,9 @@ public class InventorySteps {
     public void iGoToInventoryPage() {
         page.goToInventory();
     }
+
+    @Then("I verify images not displaying")
+    public void iVerifyImagesNotDisplaying() {
+        Assert.assertTrue(page.imagesBroken());
+    }
 }

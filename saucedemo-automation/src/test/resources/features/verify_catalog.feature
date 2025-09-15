@@ -64,3 +64,11 @@ Feature: Verify Inventory and Catalog
       | Sauce Labs Bike Light             | BIKELIGHT_DESC       | $9.99  |
       | Sauce Labs Onesie                 | ONESIE_DESC          | $7.99  |
 
+  @Regression @SWAG-011
+  Scenario: Verify images broken when problem user logged in
+    Given I am on the home page
+    When I enter "problem_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+    Then I verify images not displaying
+
