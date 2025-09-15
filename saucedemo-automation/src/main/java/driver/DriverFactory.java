@@ -23,6 +23,7 @@ public class DriverFactory {
                 options.addArguments("--headless=new");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--incognito");
                 driver = new ChromeDriver(options);
             } else {
                 EdgeOptions options = new EdgeOptions();
