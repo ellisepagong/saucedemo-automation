@@ -20,13 +20,13 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             System.out.println("Scenario failed: " + scenario.getName());
-            WebDriver driver = DriverFactory.getDriver();
-            TakesScreenshot ts = (TakesScreenshot) driver;
-
-            byte[] src = ts.getScreenshotAs(OutputType.BYTES);
-            scenario.attach(src, "image/png", "screenshot");
         }
         System.out.println("Finished scenario: " + scenario.getName());
+        WebDriver driver = DriverFactory.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+        scenario.attach(src, "image/png", "screenshot");
         DriverFactory.quitDriver();
     }
 }
