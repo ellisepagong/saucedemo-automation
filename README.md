@@ -1,5 +1,5 @@
 # saucedemo-automation
-This project contains automated tests for [SauceDemo](https://www.saucedemo.com/v1) using **Selenium WebDriver**, **Cucumber (Gherkin)**  and **GitHub Actions** for CI/CD.
+This project contains automated tests for [SauceDemo](https://www.saucedemo.com/v1) using **Selenium WebDriver**, **Cucumber (Gherkin)** with **JUnit4** and **GitHub Actions** for CI/CD.
 
 ## 🚀 Features
 - Behavior-Driven Development with Gherkin syntax
@@ -34,7 +34,7 @@ test/java/features/ # Gherkin feature files
    // line 10
    private static final String DRIVER_PATH = "PATH_TO_DRIVER"; // <- Replace with path to Driver
    ```
-   * note: DriverFactory assumes you have and will use Microsoft Edge installed in the default location. Feel free to replace EdgeOptions/EdgeDriver with your preferred browser.
+   * note: DriverFactory assumes you have and will use Microsoft Edge installed in the default location. Feel free to replace EdgeOptions/EdgeDriver with your preferred browser driver.
    
 
 4. Install Dependencies
@@ -47,12 +47,13 @@ test/java/features/ # Gherkin feature files
 ## CI/CD
 
 Tests are automatically run on every Pull Request via GitHub Actions, as well as on every 1st and 15th of every month.
-These tests are skipped if a Pull Request contains ```[skip-check]``` in the title
+These tests are skipped if a Pull Request contains ```[skip-check]``` in the title.
 
----
-## Documentation
+DriverFactory.java contains an environment check to run Google Chrome on headless in the CI environment. The specific mvn command is as follows:
 
-More in-depth documentation can be found [here](https://www.notion.so/nightcourt/SauceDemo-QA-Technical-Documentation-25af9af81e6180319e78f9debc520647).
+   ```mvn
+   mvn test -Denv=ci -Dcucumber.filter.tags=@Regression
+   ```
 
 ---
 ## Prerequisites
