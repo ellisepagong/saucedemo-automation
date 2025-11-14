@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
 
-    private final String LOGIN_ADDRESS = "https://www.saucedemo.com/v1/index.html";
+    private final String LOGIN_ADDRESS = "https://www.saucedemo.com/";
 
     // Element Locators
     private final By usernameForm = By.xpath("//*[@id=\"user-name\"]");
     private final By passwordForm = By.xpath("//*[@id=\"password\"]");
     private final By loginButton = By.xpath("//*[@id=\"login-button\"]");
-    private final By errorContainer = By.xpath("//*[@id=\"login_button_container\"]/div/form/h3");
+    private final By errorContainer = By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3");
 
 
     public void enterUsername(String username){

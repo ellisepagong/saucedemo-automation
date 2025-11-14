@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class InventoryPage extends BasePage{
 
-    private final String INVENTORY_ADDRESS = "https://www.saucedemo.com/v1/inventory.html";
+    private final String INVENTORY_ADDRESS = "https://www.saucedemo.com/inventory.html";
 
     private final By inventoryItems = By.cssSelector(".inventory_item");
 

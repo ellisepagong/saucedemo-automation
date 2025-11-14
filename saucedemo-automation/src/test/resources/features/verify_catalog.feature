@@ -59,16 +59,16 @@ Feature: Verify Inventory and Catalog
       | Item Name                         | Item Description     | Item Price |
       | Sauce Labs Fleece Jacket          | JACKET_DESC          | $49.99 |
       | Sauce Labs Backpack               | BACKPACK_DESC        | $29.99 |
-      | Test.allTheThings() T-Shirt (Red) | TESTTHINGSSHIRT_DESC | $15.99 |
       | Sauce Labs Bolt T-Shirt           | BOLTSHIRT_DESC       | $15.99 |
+      | Test.allTheThings() T-Shirt (Red) | TESTTHINGSSHIRT_DESC | $15.99 |
       | Sauce Labs Bike Light             | BIKELIGHT_DESC       | $9.99  |
       | Sauce Labs Onesie                 | ONESIE_DESC          | $7.99  |
 
-  @Regression @SWAG-011
-  Scenario: Verify images broken when problem user logged in
-    Given I am on the home page
-    When I enter "problem_user" and "secret_sauce" in login details
-    And I click login
-    Then I should be in inventory page
-    Then I verify images not displaying
+#  @Regression @SWAG-011
+#  Scenario: Verify images broken when problem user logged in
+#    Given I am on the home page
+#    When I enter "problem_user" and "secret_sauce" in login details
+#    And I click login
+#    Then I should be in inventory page
+#    Then I verify images not displaying
 

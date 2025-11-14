@@ -8,10 +8,10 @@ import java.util.List;
 
 public class CartPage extends BasePage{
 
-    private final String CART_ADDRESS = "https://www.saucedemo.com/v1/cart.html";
+    private final String CART_ADDRESS = "https://www.saucedemo.com/cart.html";
 
-    private final By checkoutButton = By.cssSelector("a.checkout_button");
-    private final By errorLabel = By.xpath("//*[@id=\"checkout_info_container\"]/div/form/h3");
+    private final By checkoutButton = By.xpath("//*[@id=\"checkout\"]");
+    private final By errorLabel = By.cssSelector(".error-message-container");
 
     private final By cartItemContainer = By.cssSelector(".cart_item");
     private final By cartItemNameLabel = By.cssSelector(".inventory_item_name");
