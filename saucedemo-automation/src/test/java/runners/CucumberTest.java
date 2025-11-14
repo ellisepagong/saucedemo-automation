@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
                 "json:target/cucumber.json"
         },
         monochrome = true,
-        tags = "@Regression"           // run specific tagged scenarios
+        tags = "@Smoke"           // run specific tagged scenarios
 )
 public class CucumberTest {
 }

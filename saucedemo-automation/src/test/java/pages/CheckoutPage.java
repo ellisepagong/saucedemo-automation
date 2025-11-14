@@ -9,9 +9,9 @@ import java.util.List;
 public class CheckoutPage extends BasePage{
 
 
-    private final String CHECKOUT_ADDRESS = "https://www.saucedemo.com/v1/checkout-step-one.html";
-    private final String OVERVIEW_ADDRESS = "https://www.saucedemo.com/v1/checkout-step-two.html";
-    private final String CHECKOUT_COMPLETE_ADDRESS = "https://www.saucedemo.com/v1/checkout-complete.html";
+    private final String CHECKOUT_ADDRESS = "https://www.saucedemo.com/checkout-step-one.html";
+    private final String OVERVIEW_ADDRESS = "https://www.saucedemo.com/checkout-step-two.html";
+    private final String CHECKOUT_COMPLETE_ADDRESS = "https://www.saucedemo.com/checkout-complete.html";
 
 
     // Step 1
@@ -26,7 +26,7 @@ public class CheckoutPage extends BasePage{
     private final By itemDescLabel = By.cssSelector(".inventory_item_desc");
     private final By itemPriceLabel = By.cssSelector(".inventory_item_price");
     private final By totalPriceLabel = By.cssSelector(".summary_total_label");
-    private final By finishButton = By.cssSelector("a.cart_button");
+    private final By finishButton = By.xpath("//*[@id=\"finish\"]");
 
     // Step 3
 

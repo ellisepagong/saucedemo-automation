@@ -38,7 +38,9 @@ Feature: Testing Cart Persistence
       | Sauce Labs Backpack  |
       | Sauce Labs Bike Light|
     And I log out
-    When I go to inventory page
+    When I enter "standard_user" and "secret_sauce" in login details
+    And I click login
+    And I should be in inventory page
     And I go to cart
     Then I verify cart contents
       | Sauce Labs Backpack  |
