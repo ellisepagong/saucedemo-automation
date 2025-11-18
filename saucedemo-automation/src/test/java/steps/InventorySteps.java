@@ -72,4 +72,9 @@ public class InventorySteps {
     public void iVerifyImagesNotDisplaying() {
         Assert.assertTrue(page.imagesBroken());
     }
+
+    @Then("I verify images are incorrect")
+    public void iVerifyImagesAreIncorrect() {
+        Assert.assertFalse(page.verifyImages());
+    }
 }
