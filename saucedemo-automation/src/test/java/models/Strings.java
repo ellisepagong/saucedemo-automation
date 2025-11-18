@@ -30,6 +30,16 @@ public class Strings {
     public static final String ONESIE_DESC = "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.";
     public static final String TESTTHINGSSHIRT_DESC = "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.";
 
+    // Catalog Image URLs as of Nov 2025
+    public static final String[] CATALOG_IMAGES = {
+        "https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.0a0b85a385945026062b.jpg",
+        "https://www.saucedemo.com/static/media/bike-light-1200x1500.37c843b09a7d77409d63.jpg",
+        "https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c2599ac5f0a35ed5931e.jpg",
+        "https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.51d7ffaf301e698772c8.jpg",
+        "https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b271ef4c3bc430.jpg",
+        "https://www.saucedemo.com/static/media/red-tatt-1200x1500.30dadef477804e54fc7b.jpg"
+    };
+
     // Checkout Error Messages
     public static final String CHECKOUT_FIRSTNAME_REQUIRED = "Error: First Name is required";
     public static final String CHECKOUT_LASTNAME_REQUIRED = "Error: Last Name is required";

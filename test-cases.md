@@ -17,33 +17,38 @@
 
 
 ## Regression Tests (@Regression)
-| Test Code | Test Case                                      |
-|-----------|------------------------------------------------|
-| SWAG-002  | Missing Credentials (Username)                 |
-| SWAG-002  | Missing Credentials (Password)                 |
-| SWAG-003  | Incorrect Credentials                          |
-| SWAG-004  | Locked out User                                |
-| SWAG-005  | Verify Catalog and Product Details             |
-| SWAG-006  | Verify Catalog Sort Alphabetically             |
-| SWAG-006  | Verify Catalog Sort by Price                   |
-| SWAG-007  | Missing Information at Checkout                |
-| SWAG-009  | Cart Persistence on Navigation                 |
-| SWAG-009  | Cart Persistence on Log out                    |
-| SWAG-010  | Verify Price Calculation                       |
-| SWAG-011  | Verify Images while Problem user logged in     |
+| Test Code | Test Case                              |
+|-----------|----------------------------------------|
+| SWAG-002  | Missing Credentials (Username)         |
+| SWAG-002  | Missing Credentials (Password)         |
+| SWAG-003  | Incorrect Credentials                  |
+| SWAG-004  | Locked out User                        |
+| SWAG-005  | Verify Catalog and Product Details     |
+| SWAG-006  | Verify Catalog Sort Alphabetically     |
+| SWAG-006  | Verify Catalog Sort by Price           |
+| SWAG-007  | Missing Information at Checkout        |
+| SWAG-009  | Cart Persistence on Navigation         |
+| SWAG-009  | Cart Persistence on Log out            |
+| SWAG-010  | Verify Price Calculation               |
+| SWAG-015  | Verify Error Message on URL Navigation |
 
 
-## Invalid Tests (@Fail)
-These are known cases in SauceDemo where expected does not match actual behavior, and expected to fail. <br>
+## Negative Tests (@Negative)
+These are test cases validating broken behavior outside the standard user profile in SauceDemo. <br>
 
-They are excluded from Smoke and Regression suites to prevent check failure on pull request, and are run through the manual workflow instead.
+They are included in the regression suite, and use explicit assertions to verify these behaviors.
 
-| Test Code | Test Case                                     |
-|-----------|-----------------------------------------------|
-| SWAG-008  | Attempt Checkout with empty cart              |
-| SWAG-012  | Attempt purchase while Problem user logged in |
-| SWAG-013  | Attempt purchase with Performance Glitch User |
-| SWAG-014  | Whitespace in checkout fields                 |
-| SWAG-015  | Inventory URL Navigation                      |
-| SWAG-016  | Checkout URL Navigation                       |
-| SWAG-017  | Cart Persistence between accounts             |
+| Test Code | Test Case                                               |
+|-----------|---------------------------------------------------------|
+| SWAG-008  | Verify Checkout Proceeds with Empty Cart                |
+| SWAG-011  | Verify Images with Problem User                         |
+| SWAG-012  | Verify Cart Persistence between accounts                |
+| SWAG-013  | Verify sort not working with Problem User               |
+| SWAG-014  | Verify missing cart contents with Problem User          |
+| SWAG-015  | Verify Checkout Fields not responding with Problem User |
+| SWAG-016  | Verify sort not working with Error User                 |
+| SWAG-017  | Verify missing cart contents with Error User            |
+| SWAG-018  | Verify Checkout Fields not responding with Error User   |
+| SWAG-019  | Verify UI Elements not in Place in Visual Error User    |
+| SWAG-020  | Verify longer load time in Performance Glitch User      |
+

@@ -1,6 +1,7 @@
 package pages;
 
 import models.CatalogItem;
+import models.Strings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -75,5 +76,19 @@ public class InventoryPage extends BasePage{
             }
         }
         return false;
+    }
+
+    public boolean verifyImages() {
+        List<WebElement> containers = driver.findElements(inventoryItems);
+        String[] URLS = Strings.CATALOG_IMAGES;
+        for (int i = 0; i<containers.size(); i++){
+            WebElement container = containers.get(i);
+            String imageURL = container.findElement(itemImage).getAttribute("src");
+            assert imageURL != null;
+            if (!imageURL.equals(URLS[i])){
+                return false;
+            }
+        }
+        return true;
     }
 }
