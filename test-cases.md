@@ -45,10 +45,10 @@ They are included in the regression suite, and use explicit assertions to verify
 | SWAG-012  | Verify Cart Persistence between accounts                |
 | SWAG-013  | Verify sort not working with Problem User               |
 | SWAG-014  | Verify missing cart contents with Problem User          |
-| SWAG-015  | Verify Checkout Fields not responding with Problem User |
-| SWAG-016  | Verify sort not working with Error User                 |
-| SWAG-017  | Verify missing cart contents with Error User            |
-| SWAG-018  | Verify Checkout Fields not responding with Error User   |
-| SWAG-019  | Verify UI Elements not in Place in Visual Error User    |
-| SWAG-020  | Verify longer load time in Performance Glitch User      |
+| SWAG-016  | Verify Checkout Fields not responding with Problem User |
+| SWAG-017  | Verify sort not working with Error User                 |
+| SWAG-018  | Verify missing cart contents with Error User            |
+| SWAG-019  | Verify Checkout Fields not responding with Error User   |
+| SWAG-020  | Verify UI Elements not in Place in Visual Error User    |
+| SWAG-021  | Verify longer load time in Performance Glitch User      |
 
