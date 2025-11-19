@@ -4,6 +4,7 @@ import models.CatalogItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartPage extends BasePage{
@@ -40,5 +41,14 @@ public class CartPage extends BasePage{
         return new CatalogItem(container.findElement(cartItemNameLabel).getText(),
                 container.findElement(cartItemDescLabel).getText(),
                 container.findElement(cartItemPriceLabel).getText());
+    }
+
+    public List<String> getAllCartItemNames() {
+        List<String> out = new ArrayList<>();
+        List<WebElement> cartContainers = driver.findElements(cartItemContainer);
+        for (WebElement container : cartContainers){
+            out.add(container.findElement(cartItemNameLabel).getText());
+        }
+        return out;
     }
 }

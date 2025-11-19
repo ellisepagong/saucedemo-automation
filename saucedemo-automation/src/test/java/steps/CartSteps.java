@@ -9,6 +9,7 @@ import org.junit.Assert;
 import pages.CartPage;
 import pages.SidePanel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartSteps {
@@ -44,6 +45,18 @@ public class CartSteps {
     @And("I log out")
     public void iLogOut() {
         panel.logout();
+    }
+
+    @Then("I verify if there are missing cart items")
+    public void iVerifyIfThereAreMissingCartItems(List<String> cartItems) {
+        List<String> missingItems = new ArrayList<>();
+        List<String> cartActualItems = page.getAllCartItemNames();
+        for (String cartItem : cartItems) {
+            if (!cartActualItems.contains(cartItem)) {
+                missingItems.add(cartItem);
+            }
+        }
+        Assert.assertFalse(missingItems.isEmpty());
     }
 }
 
