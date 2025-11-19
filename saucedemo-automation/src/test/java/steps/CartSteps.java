@@ -34,7 +34,7 @@ public class CartSteps {
 
     @Then("I verify cart contents")
     public void iVerifyCartContents(List<String> cartItems) {
-        for (int i = 0; i < cartItems.size(); i++){
+        for (int i = 0; i < cartItems.size(); i++) {
             CatalogItem item = page.getCartItem(i);
             Assert.assertEquals(cartItems.get(i), item.getItemName());
         }
@@ -45,6 +45,19 @@ public class CartSteps {
     public void iLogOut() {
         panel.logout();
     }
+
+    @Then("I verify if there are missing cart items")
+    public void iVerifyIfThereAreMissingCartItems() {
+        try {
+            for (int i = 0; i < 6; i++){
+                page.getCartItem(i);
+            }
+            Assert.fail("All cart items are present");
+        } catch (IndexOutOfBoundsException e) {
+            Assert.assertTrue(true);
+        }
+    }
+
 }
 
 
