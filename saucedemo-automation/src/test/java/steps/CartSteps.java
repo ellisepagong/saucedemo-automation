@@ -9,6 +9,7 @@ import org.junit.Assert;
 import pages.CartPage;
 import pages.SidePanel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartSteps {
@@ -34,7 +35,7 @@ public class CartSteps {
 
     @Then("I verify cart contents")
     public void iVerifyCartContents(List<String> cartItems) {
-        for (int i = 0; i < cartItems.size(); i++) {
+        for (int i = 0; i < cartItems.size(); i++){
             CatalogItem item = page.getCartItem(i);
             Assert.assertEquals(cartItems.get(i), item.getItemName());
         }
@@ -47,17 +48,16 @@ public class CartSteps {
     }
 
     @Then("I verify if there are missing cart items")
-    public void iVerifyIfThereAreMissingCartItems() {
-        try {
-            for (int i = 0; i < 6; i++){
-                page.getCartItem(i);
+    public void iVerifyIfThereAreMissingCartItems(List<String> cartItems) {
+        List<String> missingItems = new ArrayList<>();
+        List<String> cartActualItems = page.getAllCartItemNames();
+        for (String cartItem : cartItems) {
+            if (!cartActualItems.contains(cartItem)) {
+                missingItems.add(cartItem);
             }
-            Assert.fail("All cart items are present");
-        } catch (IndexOutOfBoundsException e) {
-            Assert.assertTrue(true);
         }
+        Assert.assertFalse(missingItems.isEmpty());
     }
-
 }
 
 

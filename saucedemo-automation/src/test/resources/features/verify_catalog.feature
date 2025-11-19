@@ -146,3 +146,9 @@ Feature: Verify Inventory and Catalog
       | Test.allTheThings() T-Shirt (Red) |
     And I go to cart
     Then I verify if there are missing cart items
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
