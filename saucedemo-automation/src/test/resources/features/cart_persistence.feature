@@ -45,3 +45,25 @@ Feature: Testing Cart Persistence
     Then I verify cart contents
       | Sauce Labs Backpack  |
       | Sauce Labs Bike Light|
+
+    @Negative @Regression @SWAG-012
+    Scenario: Verify Cart Persistence between accounts
+      Given I am on the home page
+      When I enter "standard_user" and "secret_sauce" in login details
+      And I click login
+      Then I should be in inventory page
+      When I add the following items to cart
+        | Sauce Labs Backpack  |
+        | Sauce Labs Bike Light|
+      And I go to cart
+      Then I verify cart contents
+        | Sauce Labs Backpack  |
+        | Sauce Labs Bike Light|
+      And I log out
+      When I enter "problem_user" and "secret_sauce" in login details
+      And I click login
+      And I should be in inventory page
+      And I go to cart
+      Then I verify cart contents
+        | Sauce Labs Backpack  |
+        | Sauce Labs Bike Light|
