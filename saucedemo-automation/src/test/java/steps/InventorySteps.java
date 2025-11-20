@@ -77,4 +77,9 @@ public class InventorySteps {
     public void iVerifyImagesAreIncorrect() {
         Assert.assertFalse(page.verifyImages());
     }
+
+    @Then("I confirm sort not working")
+    public void iConfirmSortNotWorking() {
+        Assert.assertTrue(page.sortErrorExists());
+    }
 }

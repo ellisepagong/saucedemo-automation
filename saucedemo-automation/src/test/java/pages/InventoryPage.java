@@ -91,4 +91,11 @@ public class InventoryPage extends BasePage{
         }
         return true;
     }
+
+    public boolean sortErrorExists() {
+        if (Objects.equals(driver.switchTo().alert().getText(), "Sorting is broken! This error has been reported to Backtrace.")){
+            driver.switchTo().alert().accept();
+            return true;
+        }else{return false;}
+    }
 }
