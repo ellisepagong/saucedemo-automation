@@ -84,3 +84,15 @@ Feature: Checkout Scenarios
       Then I should be in overview page
       And I finish checkout
       Then transaction should be successful
+
+      @Negative @Regression @SWAG-016
+      Scenario: Verify Checkout Fields not responding with Problem User
+        Given I am on the home page
+        When I enter "problem_user" and "secret_sauce" in login details
+        And I click login
+        Then I should be in inventory page
+        And I go to cart
+        Then I should be in cart page
+        And I go to checkout
+        Then I should be in checkout Page
+        Then I enter "firstname", "lastname" and "1800" in checkout information and verify

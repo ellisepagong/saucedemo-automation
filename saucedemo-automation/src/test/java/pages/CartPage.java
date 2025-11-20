@@ -12,7 +12,6 @@ public class CartPage extends BasePage{
     private final String CART_ADDRESS = "https://www.saucedemo.com/cart.html";
 
     private final By checkoutButton = By.xpath("//*[@id=\"checkout\"]");
-    private final By errorLabel = By.cssSelector(".error-message-container");
 
     private final By cartItemContainer = By.cssSelector(".cart_item");
     private final By cartItemNameLabel = By.cssSelector(".inventory_item_name");
@@ -26,13 +25,6 @@ public class CartPage extends BasePage{
 
     public void checkout() {
         click(checkoutButton);
-    }
-
-    public String getErrorMessage() {
-        if(isDisplayed(errorLabel)){
-            return getText(errorLabel);
-        }
-        return "";
     }
 
     public CatalogItem getCartItem(int i) {

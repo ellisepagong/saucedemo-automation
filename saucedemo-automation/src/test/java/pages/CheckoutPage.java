@@ -18,6 +18,7 @@ public class CheckoutPage extends BasePage{
     private final By firstNameField = By.id("first-name");
     private final By lastNameField = By.id("last-name");
     private final By postalCodeField = By.id("postal-code");
+    private final By errorLabel = By.cssSelector(".error-message-container");
     private final By continueButton = By.cssSelector("input.cart_button");
 
     // Step 2
@@ -41,6 +42,13 @@ public class CheckoutPage extends BasePage{
         type(firstNameField, fName);
         type(lastNameField, lName);
         type(postalCodeField, zipcode);
+    }
+
+    public String getErrorMessage() {
+        if(isDisplayed(errorLabel)){
+            return getText(errorLabel);
+        }
+        return "";
     }
 
     public void submit() {
