@@ -48,6 +48,11 @@ public abstract class BasePage {
 
     public void navigate(String url) {
         driver.get(url);
+        try { // in case of redirect
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
