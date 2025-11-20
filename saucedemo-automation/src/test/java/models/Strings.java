@@ -21,6 +21,7 @@ public class Strings {
     public static final String MISSING_PASSWORD = "Epic sadface: Password is required";
     public static final String INCORRECT_CREDENTIALS = "Epic sadface: Username and password do not match any user in this service";
     public static final String LOCKED_OUT = "Epic sadface: Sorry, this user has been locked out.";
+    public static final String NAVIGATION_ERROR ="Epic sadface: You can only access '/inventory.html' when you are logged in.";
 
     // Catalog Descriptions
     public static final String BACKPACK_DESC = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
