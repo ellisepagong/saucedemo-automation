@@ -5,7 +5,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import models.CatalogItem;
+import models.Strings;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import pages.CheckoutPage;
 
 import java.util.List;
@@ -25,6 +27,12 @@ public class CheckoutSteps {
     public void iEnterCheckoutInformation(String fName, String lName, String zipcode) {
         page.enterInformation(fName, lName, zipcode);
         page.submit();
+    }
+
+    @Then("I should get the error message {string}")
+    public void iShouldGetTheErrorMessageString(String msg) {
+        String message = Strings.getString(msg);
+        Assert.assertEquals(message, page.getErrorMessage());
     }
 
     // Step 2 Checkout
@@ -58,6 +66,16 @@ public class CheckoutSteps {
     @Then("transaction should be successful")
     public void transactionShouldBeSuccessful() {
         Assert.assertTrue(page.verifyCheckoutCompletePage());
+    }
+
+    @Then("I enter {string}, {string} and {string} in checkout information and verify")
+    public void iEnterAndInCheckoutInformationAndVerify(String fName, String lName, String zipcode) {
+        iEnterCheckoutInformation(fName, lName, zipcode);
+        try{
+            Assert.assertNotNull(page.getErrorMessage());
+        } catch (NoSuchElementException e) {
+            Assert.fail("Checkout has proceeded");
+        }
     }
 }
 

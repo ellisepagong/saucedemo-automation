@@ -27,12 +27,6 @@ public class CartSteps {
         page.checkout();
     }
 
-    @Then("I should get the error message {string}")
-    public void iShouldGetTheErrorMessageString(String msg) {
-        String message = Strings.getString(msg);
-        Assert.assertEquals(message, page.getErrorMessage());
-    }
-
     @Then("I verify cart contents")
     public void iVerifyCartContents(List<String> cartItems) {
         for (int i = 0; i < cartItems.size(); i++){
