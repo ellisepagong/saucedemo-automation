@@ -29,3 +29,9 @@ Feature: Various Log-in scenarios
   Examples:
     | Scenario       | username         | password     | message    |
     | Locked Out User|  locked_out_user | secret_sauce | LOCKED_OUT |
+
+  @Regression @SWAG-015
+  Scenario: Verify Error Message on URL Navigation
+    When I go to inventory page
+    Then I should be on the home page
+    Then login error message should be "NAVIGATION_ERROR"
