@@ -96,3 +96,30 @@ Feature: Checkout Scenarios
         And I go to checkout
         Then I should be in checkout Page
         Then I enter "firstname", "lastname" and "1800" in checkout information and verify
+
+  @Negative @Regression @SWAG-021
+  Scenario: Verify longer load time in Performance Glitch User
+    Given I am on the home page
+    When I enter "performance_glitch_user" and "secret_sauce" in login details
+    And I click login
+    Then I wait for Inventory to load
+    And I go to cart
+    Then I should be in cart page
+    And I go to back to inventory from cart page
+    Then I wait for Inventory to load
+    When I add the following items to cart
+      | Sauce Labs Backpack  |
+      | Sauce Labs Bike Light|
+    And I go to cart
+    Then I should be in cart page
+    And I go to checkout
+    Then I should be in checkout Page
+    When I enter "firstname", "lastname" and "1800" in your information
+    Then I should be in overview page
+    Then I verify cart contents and price
+      | Sauce Labs Backpack  |
+      | Sauce Labs Bike Light|
+    And I finish checkout
+    Then transaction should be successful
+    And I go back to home
+    Then I wait for Inventory to load

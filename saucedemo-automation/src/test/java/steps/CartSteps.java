@@ -52,6 +52,11 @@ public class CartSteps {
         }
         Assert.assertFalse(missingItems.isEmpty());
     }
+
+    @And("I go to back to inventory from cart page")
+    public void iGoToBackToInventoryFromCartPage() {
+        page.backToInventory();
+    }
 }
 
 

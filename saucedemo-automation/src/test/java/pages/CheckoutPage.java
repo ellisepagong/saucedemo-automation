@@ -31,6 +31,7 @@ public class CheckoutPage extends BasePage{
 
     // Step 3
 
+    private final By backHome = By.id("back-to-products");
 
     // Step 1 Checkout
 
@@ -83,5 +84,7 @@ public class CheckoutPage extends BasePage{
     }
 
 
-
+    public void goHome() {
+        click(backHome);
+    }
 }

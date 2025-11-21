@@ -77,5 +77,10 @@ public class CheckoutSteps {
             Assert.fail("Checkout has proceeded");
         }
     }
+
+    @And("I go back to home")
+    public void iGoBackToHome() {
+        page.goHome();
+    }
 }
 
