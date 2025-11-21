@@ -1,13 +1,5 @@
 # Log-in test cases
 
-## Index
-| Code numbers | Category                       |
-|--------------|--------------------------------|
-| 001–004      | Log-in                         |
-| 005–010      | Inventory and Checkout Functions |
-| 011–012      | Problem User Cases             |
-| 013–017      | Invalid Tests                  |
-
 
 ## Smoke Tests (@Smoke) 
 | Test Code | Test Case         |
@@ -47,8 +39,8 @@ They are included in the regression suite, and use explicit assertions to verify
 | SWAG-014  | Verify missing cart contents with Problem User          |
 | SWAG-016  | Verify Checkout Fields not responding with Problem User |
 | SWAG-017  | Verify sort not working with Error User                 |
-| SWAG-018  | Verify missing cart contents with Error User            |
-| SWAG-019  | Verify Checkout Fields not responding with Error User   |
-| SWAG-020  | Verify UI Elements not in Place in Visual Error User    |
-| SWAG-021  | Verify longer load time in Performance Glitch User      |
+| SWAG-019  | Verify missing cart contents with Error User            |
+| SWAG-020  | Verify Checkout Fields not responding with Error User   |
+| SWAG-021  | Verify UI Elements not in Place in Visual Error User    |
+| SWAG-022  | Verify longer load time in Performance Glitch User      |
 
