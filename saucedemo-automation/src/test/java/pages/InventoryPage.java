@@ -4,8 +4,12 @@ import models.CatalogItem;
 import models.Strings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -97,5 +101,15 @@ public class InventoryPage extends BasePage{
             driver.switchTo().alert().accept();
             return true;
         }else{return false;}
+    }
+
+    public boolean waitForLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        long startTime = new Date().getTime();
+        wait.until(ExpectedConditions.elementToBeClickable(cartButton));
+        long endTime = new Date().getTime();
+        long duration = endTime-startTime;
+        System.out.println("  Total time elapsed while waiting: " + duration + " milliseconds");
+        return driver.findElement(cartButton).isDisplayed();
     }
 }
