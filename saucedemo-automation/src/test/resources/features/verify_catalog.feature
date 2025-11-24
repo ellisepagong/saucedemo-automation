@@ -145,6 +145,28 @@ Feature: Verify Inventory and Catalog
       | Sauce Labs Onesie                 |
       | Test.allTheThings() T-Shirt (Red) |
 
+  @Negative @Regression @SWAG-018
+  Scenario: Verify missing cart contents with error User
+    Given I am on the home page
+    When I enter "error_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+    When I add the following items to cart
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
+    And I go to cart
+    Then I verify if there are missing cart items
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
+
   @Negative @Regression @SWAG-017
     Scenario: Verify sort not working with Error User
     Given I am on the home page
