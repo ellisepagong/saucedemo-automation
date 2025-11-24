@@ -3,6 +3,7 @@ package pages;
 import models.CatalogItem;
 import models.Strings;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -111,5 +112,22 @@ public class InventoryPage extends BasePage{
         long duration = endTime-startTime;
         System.out.println("  Total time elapsed while waiting: " + duration + " milliseconds");
         return driver.findElement(cartButton).isDisplayed();
+    }
+
+    public boolean verifyInventoryUIElements() {
+        // Cart Button true coordinate
+        Point cartPoint = new Point(846, 10);
+        // Add to Cart button true coordinate
+        Point addPoint = new Point(696, 1599);
+
+        boolean cartBool = cartPoint.equals(driver.findElement(cartButton).getLocation());
+        boolean addBool = false;
+        List<WebElement> containers = driver.findElements(inventoryItems);
+        for (WebElement container : containers){
+            if(container.findElement(itemLabel).getText().equals("Test.allTheThings() T-Shirt (Red)")){
+                addBool = addPoint.equals(container.findElement(addToCartButton).getLocation());
+            }
+        }
+        return (cartBool || addBool);
     }
 }

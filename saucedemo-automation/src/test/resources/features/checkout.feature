@@ -123,3 +123,22 @@ Feature: Checkout Scenarios
     Then transaction should be successful
     And I go back to home
     Then I wait for Inventory to load
+
+  @Negative @Regression @SWAG-020
+  Scenario: Verify UI Elements incorrect in Visual Error User
+    Given I am on the home page
+    When I enter "visual_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+    Then I verify catalog items are priced incorrectly
+      | Item Name                         | Item Description     | Item Price |
+      | Sauce Labs Backpack               | BACKPACK_DESC        | $29.99     |
+      | Sauce Labs Bike Light             | BIKELIGHT_DESC       | $9.99      |
+      | Sauce Labs Bolt T-Shirt           | BOLTSHIRT_DESC       | $15.99     |
+      | Sauce Labs Fleece Jacket          | JACKET_DESC          | $49.99     |
+      | Sauce Labs Onesie                 | ONESIE_DESC          | $7.99      |
+      | Test.allTheThings() T-Shirt (Red) | TESTTHINGSSHIRT_DESC | $15.99     |
+    Then I verify images are incorrect
+    Then I verify inventory UI is not correct
+    And I go to cart
+    Then I verify cart UI is not correct

@@ -57,6 +57,11 @@ public class CartSteps {
     public void iGoToBackToInventoryFromCartPage() {
         page.backToInventory();
     }
+
+    @Then("I verify cart UI is not correct")
+    public void iVerifyCartUIIsNotCorrect() {
+        Assert.assertFalse(page.verifyCartUIElements());
+    }
 }
 
 
