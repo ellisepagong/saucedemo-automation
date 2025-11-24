@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.DataTableType;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -85,5 +86,18 @@ public class InventorySteps {
     @Then("I wait for Inventory to load")
     public void iWaitForInventoryToLoad() {
         Assert.assertTrue(page.waitForLoad());
+    }
+
+    @Then("I verify inventory UI is not correct")
+    public void iVerifyInventoryUIIsNotCorrect() {
+        Assert.assertFalse(page.verifyInventoryUIElements());
+    }
+
+    @Then("I verify catalog items are priced incorrectly")
+    public void iVerifyCatalogItemsArePricedIncorrectlyList(List<CatalogItem> catalog) {
+        for(int i=0; i< catalog.size(); i++){
+            CatalogItem item = catalog.get(i);
+            Assert.assertFalse(item.equals(page.getCatalogItem(i)));
+        }
     }
 }

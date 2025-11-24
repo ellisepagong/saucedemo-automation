@@ -2,6 +2,7 @@ package pages;
 
 import models.CatalogItem;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -47,5 +48,12 @@ public class CartPage extends BasePage{
 
     public void backToInventory() {
         click(backButton);
+    }
+
+    public boolean verifyCartUIElements() {
+        // Checkout button true coordinate
+        Point checkoutPoint = new Point(686, 218);
+        WebElement checkout = driver.findElement(checkoutButton);
+        return checkoutPoint.equals(checkout.getLocation());
     }
 }
