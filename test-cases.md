@@ -41,6 +41,6 @@ They are included in the regression suite, and use explicit assertions to verify
 | SWAG-017  | Verify sort not working with Error User                 |
 | SWAG-019  | Verify missing cart contents with Error User            |
 | SWAG-020  | Verify Checkout Fields not responding with Error User   |
-| SWAG-021  | Verify UI Elements not in Place in Visual Error User    |
+| SWAG-021  | Verify UI Elements incorrect in Visual Error User       |
 | SWAG-022  | Verify longer load time in Performance Glitch User      |
 
