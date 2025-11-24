@@ -1,7 +1,6 @@
 package steps;
 
 import io.cucumber.java.DataTableType;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -81,5 +80,10 @@ public class InventorySteps {
     @Then("I confirm sort not working")
     public void iConfirmSortNotWorking() {
         Assert.assertTrue(page.sortErrorExists());
+    }
+
+    @Then("I wait for Inventory to load")
+    public void iWaitForInventoryToLoad() {
+        Assert.assertTrue(page.waitForLoad());
     }
 }

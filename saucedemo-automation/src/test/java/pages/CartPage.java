@@ -17,6 +17,7 @@ public class CartPage extends BasePage{
     private final By cartItemNameLabel = By.cssSelector(".inventory_item_name");
     private final By cartItemDescLabel = By.cssSelector(".inventory_item_desc");
     private final By cartItemPriceLabel = By.cssSelector(".inventory_item_price");
+    private final By backButton = By.id("continue-shopping");
 
 
     public boolean verifyNavigation() {
@@ -42,5 +43,9 @@ public class CartPage extends BasePage{
             out.add(container.findElement(cartItemNameLabel).getText());
         }
         return out;
+    }
+
+    public void backToInventory() {
+        click(backButton);
     }
 }
