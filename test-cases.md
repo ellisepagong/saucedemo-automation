@@ -22,7 +22,6 @@ These tests concern the validation of information within the website as well as 
 | SWAG-006  | Verify Catalog Sort Alphabetically     |
 | SWAG-006  | Verify Catalog Sort by Price           |
 | SWAG-007  | Missing Information at Checkout        |
-| SWAG-009  | Cart Persistence on Navigation         |
 | SWAG-009  | Cart Persistence on Log out            |
 | SWAG-010  | Verify Price Calculation               |
 | SWAG-015  | Verify Error Message on URL Navigation |
