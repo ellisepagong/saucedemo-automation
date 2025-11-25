@@ -1,7 +1,8 @@
-# Log-in test cases
-
+# Test Cases
 
 ## Smoke Tests (@Smoke) 
+These are tests concerning the basic essential functions of the website, ensuring that the standard user is able to interact with it outside of any performance failures. 
+
 | Test Code | Test Case         |
 |-----------|-------------------|
 | SWAG-001  | Successful Log in |
@@ -9,6 +10,8 @@
 
 
 ## Regression Tests (@Regression)
+These tests concern the validation of information within the website as well as behavior when unexpected or unauthorized behavior is executed.
+
 | Test Code | Test Case                              |
 |-----------|----------------------------------------|
 | SWAG-002  | Missing Credentials (Username)         |
