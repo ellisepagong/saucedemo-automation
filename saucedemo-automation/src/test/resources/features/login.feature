@@ -1,4 +1,14 @@
-Feature: Various Log-in scenarios
+Feature: Various Log-in
+
+# Test Cases regarding log-in page and behavior
+#
+#  The following test cases are below:
+#  Successful log in
+#  Missing Username on log in
+#  Missing password on log in
+#  Logging in with incorrect credentials
+#  Logging in with locked out user
+#  Navigating to inventory via URL without logging in
 
   @Smoke @SWAG-001
   Scenario: Successful Log-in

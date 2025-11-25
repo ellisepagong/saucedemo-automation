@@ -1,5 +1,15 @@
 Feature: Verify Inventory and Catalog
 
+#  Test cases concerning behavior and content in the inventory page.
+#
+#  Tests included
+#  Verify product details
+#  Verify sort (Z to A, Price low to High, Price High to low)
+#  Verify images are missing/broken with problem user profile
+#  Verify sort is not working with problem user profile
+#  Verify 'add to cart' not working (Problem user and Error user profiles)
+#  Verify sort error in error user profile
+
   @Regression @SWAG-005
   Scenario: Verify Catalog and Product Details
     Given I am on the home page
@@ -168,7 +178,7 @@ Feature: Verify Inventory and Catalog
       | Test.allTheThings() T-Shirt (Red) |
 
   @Negative @Regression @SWAG-017
-    Scenario: Verify sort not working with Error User
+  Scenario: Verify sort not working with Error User
     Given I am on the home page
     When I enter "error_user" and "secret_sauce" in login details
     And I click login

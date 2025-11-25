@@ -1,5 +1,17 @@
 Feature: Checkout Scenarios
 
+#  Tests concerning the checkout page and checkout procedure.
+#
+#  Test Cases included:
+#  Successful Purchase (Full Checkout Procedure)
+#  Missing credentials at Checkout
+#  Verify Price Calculation
+#  Verify Checkout proceeds with empty cart
+#  Verify Checkout Fields not responding with problem user profile
+#  Verify longer load time with performance glitch user profile
+#  Verify visual bugs in visual user profile
+
+
   @Smoke @SWAG-018
     Scenario: Successful Purchase
     Given I am on the home page
@@ -70,32 +82,32 @@ Feature: Checkout Scenarios
       | Sauce Labs Onesie                 |
       | Test.allTheThings() T-Shirt (Red) |
 
-    @Negative @Regression @SWAG-008
-    Scenario: Verify Checkout Proceeds with Empty Cart
-      Given I am on the home page
-      When I enter "standard_user" and "secret_sauce" in login details
-      And I click login
-      Then I should be in inventory page
-      And I go to cart
-      Then I should be in cart page
-      And I go to checkout
-      Then I should be in checkout Page
-      When I enter "firstname", "lastname" and "1800" in your information
-      Then I should be in overview page
-      And I finish checkout
-      Then transaction should be successful
+  @Negative @Regression @SWAG-008
+  Scenario: Verify Checkout Proceeds with Empty Cart
+    Given I am on the home page
+    When I enter "standard_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+    And I go to cart
+    Then I should be in cart page
+    And I go to checkout
+    Then I should be in checkout Page
+    When I enter "firstname", "lastname" and "1800" in your information
+    Then I should be in overview page
+    And I finish checkout
+    Then transaction should be successful
 
-      @Negative @Regression @SWAG-016
-      Scenario: Verify Checkout Fields not responding with Problem User
-        Given I am on the home page
-        When I enter "problem_user" and "secret_sauce" in login details
-        And I click login
-        Then I should be in inventory page
-        And I go to cart
-        Then I should be in cart page
-        And I go to checkout
-        Then I should be in checkout Page
-        Then I enter "firstname", "lastname" and "1800" in checkout information and verify
+  @Negative @Regression @SWAG-016
+  Scenario: Verify Checkout Fields not responding with Problem User
+    Given I am on the home page
+    When I enter "problem_user" and "secret_sauce" in login details
+    And I click login
+    Then I should be in inventory page
+    And I go to cart
+    Then I should be in cart page
+    And I go to checkout
+    Then I should be in checkout Page
+    Then I enter "firstname", "lastname" and "1800" in checkout information and verify
 
   @Negative @Regression @SWAG-021
   Scenario: Verify longer load time in Performance Glitch User

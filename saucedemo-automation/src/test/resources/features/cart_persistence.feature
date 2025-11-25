@@ -1,5 +1,12 @@
 Feature: Testing Cart Persistence
 
+#  SauceDemo features Cart Persistence Behavior ie. cart items remain even after logging out. These test cases observe the extent of this behavior.
+#
+#  Test Cases included:
+#  Cart Persistence on Log out
+#  Cart Persistence on URL Navigation - removed due to URL navigation error (refer to SWAG-015)
+#  Cart Persistence between accounts
+
   @Regression @SWAG-009
   Scenario: Cart Persistence on Log Out
     Given I am on the home page
@@ -18,29 +25,6 @@ Feature: Testing Cart Persistence
     When I enter "standard_user" and "secret_sauce" in login details
     And I click login
     Then I should be in inventory page
-    And I go to cart
-    Then I verify cart contents
-      | Sauce Labs Backpack  |
-      | Sauce Labs Bike Light|
-
-
-  @Regression @SWAG-009
-  Scenario: Cart Persistence on Navigation
-    Given I am on the home page
-    When I enter "standard_user" and "secret_sauce" in login details
-    And I click login
-    Then I should be in inventory page
-    When I add the following items to cart
-      | Sauce Labs Backpack  |
-      | Sauce Labs Bike Light|
-    And I go to cart
-    Then I verify cart contents
-      | Sauce Labs Backpack  |
-      | Sauce Labs Bike Light|
-    And I log out
-    When I enter "standard_user" and "secret_sauce" in login details
-    And I click login
-    And I should be in inventory page
     And I go to cart
     Then I verify cart contents
       | Sauce Labs Backpack  |
